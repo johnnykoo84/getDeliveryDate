@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h3>
+			Please type the lead time in weeks
+		</h3>
+		<input type="number" id="cw">
+		<p>Click the button to display the expected delivery date</p>
+
+		<button onclick="getDelivery()">Calculate</button>
+
+		<p id="display"></p>
+
+		<script>
+		function getDelivery() {
+		    var d = new Date();
+			var leadTime = document.getElementById("cw").value;
+			console.log('input leadTime is:', leadTime);
+			console.log('today is: ', d);
+			d.setDate(d.getDate() + leadTime*7);
+
+			while(d.getUTCDay() < 6) {
+				console.log(d.getUTCDay());
+				d.setDate(d.getDate() + 1);
+			};
+			d.setDate(d.getDate() + 2);
+			console.log('expected delivery date is: ', d);
+			var dd = d.getDate();
+			var mm = d.getMonth();
+			var y = d.getFullYear();
+			var formatDate = y + '-' + mm + '-' + dd;
+			document.getElementById("display").innerHTML = formatDate;
+		}
+		</script>
+
+	</body>
+</html>
