@@ -26,7 +26,7 @@
 			d.setDate(d.getDate() + 2);
 			console.log('expected delivery date is: ', d);
 			var dd = d.getDate();
-			var mm = d.getMonth();
+			var mm = d.getMonth() + 1;
 			var y = d.getFullYear();
 			var formatDate = y + '-' + mm + '-' + dd;
 			document.getElementById("display").innerHTML = formatDate;
